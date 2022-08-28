@@ -29,10 +29,14 @@ jobs:
       ARM_SUBSCRIPTION_ID: ${{ secrets.MVP_SUBSCRIPTION }}
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       DEPLOYMENT_ENV: dev #(options are 'dev','test','prod') 
-
+      
+      
      # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-  
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+         creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.MVP_SUBSCRIPTION }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}' 
     
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout
@@ -45,10 +49,7 @@ jobs:
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token.
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
-    
-   # - uses: Azure/login@v1
-    #  with:
-    #   creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.MVP_SUBSCRIPTION }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'         
+          
     # Initialize Terraform working directory by creating initial files and loading remote state.
     - name: Terraform Init            
       run: terraform init 
