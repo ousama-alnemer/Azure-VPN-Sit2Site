@@ -33,9 +33,7 @@ jobs:
      # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
   
-    - uses: Azure/login@v1
-      with:
-       creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.MVP_SUBSCRIPTION }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'        
+    
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout
       uses: actions/checkout@v3
@@ -48,6 +46,9 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
     
+    - uses: Azure/login@v1
+      with:
+       creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.MVP_SUBSCRIPTION }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'         
     # Initialize Terraform working directory by creating initial files and loading remote state.
     - name: Terraform Init            
       run: terraform init 
