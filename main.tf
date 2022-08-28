@@ -109,23 +109,3 @@ module "associatenicnsg" {
   nsgid              = module.networksecuritygroup._networksecuritygroupid
 }
 
-# Call Windows Virtual Machine module
-module "virtualmachine-windows" {
-  source = "./modules/vm-windows"
-
-  vmname                     = "${var.vmname}${var.applicationname}${var.environment}${var.locationacronym}${var.increment}"
-  location                   = module.resourcegroup._resourcegrouplocation
-  resourcegroupname          = module.resourcegroup._resourcegroupname
-  networkinterfacename       = var.networkinterfacename
-  networkinterfaceid         = module.networkinterface._networkinterfaceid
-  vmsize                     = var.vmsize
-  vmadminusername            = var.vmadminusername
-  vmadminuserpassword        = var.vmadminuserpassword
-  vmimagepublisher           = var.vmimagepublisher
-  vmimageoffer               = var.vmimageoffer
-  vmimagesku                 = var.vmimagesku
-  vmimageversion             = var.vmimageversion
-  vmosdiskcaching            = var.vmosdiskcaching
-  vmosdiskstorageaccounttype = var.vmosdiskstorageaccounttype
-
-}
