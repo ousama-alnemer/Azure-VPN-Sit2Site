@@ -16,9 +16,10 @@ variable "resourcegroupname" {
 
 variable "peergatewayaddress" {
   type        = string
-  description = "The name of azure Network Security Group."
+  description = "The peer network gateway."
 }
-variable "peerIpaddress" {
+
+variable "peerIpaddressrange" {
   type        = string
-  description = "The name of azure Network Security Group."
+  description = "The peer network range."
 }

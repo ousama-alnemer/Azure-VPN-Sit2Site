@@ -83,3 +83,12 @@ variable "publicipid" {
   type        = string
   description = "The id of the public ip address."
 }
+
+variable "peergatewayaddress" {
+  type        = string
+  description = "The peer network gateway."
+}
+variable "peerIpaddressrange" {
+  type        = string
+  description = "The peer network range."
+}
