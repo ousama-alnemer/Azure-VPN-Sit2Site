@@ -86,20 +86,20 @@ jobs:
 
           
     # Initialize Terraform working directory by creating initial files and loading remote state.
-    - name: Terraform Init            
-      run: terraform init 
+    #- name: Terraform Init            
+     # run: terraform init 
       
     # Switch the terraform workspace to specific environment, for executing plan on respective state file.
   #  - name: Terraform switch to environment (dev, qa, prod) workspace
    #   run: terraform workspace new $DEPLOYMENT_ENV  
 
     # Checks that all Terraform configuration files adhere to a canonical format
-    - name: Terraform Format
-      run: terraform fmt
+    #- name: Terraform Format
+     # run: terraform fmt
     
     # Checks the correctioness of all Terraform files syntax
-    - name: Terraform Validate
-      run: terraform validate
+   #- name: Terraform Validate
+    #  run: terraform validate
 
     # Generate the report on what would be deployed using Terraform Plan on respective environment
     - name: Terraform Plan
