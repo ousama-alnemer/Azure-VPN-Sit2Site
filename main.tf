@@ -79,7 +79,6 @@ module "subnet" {
 # Call Public IP module
 module "publicip" {
   source = "./modules/public-ip"
-
   publicipname      = var.publicipname-prd
   location          = var.location-prd
   resourcegroupname = var.resourcegroupname-prd
@@ -94,10 +93,10 @@ module "networkinterface" {
 }
 
 # Call Network Security Group module
-module "networksecuritygroup" {
-  source = "./modules/network-security-group"
-  nsgname           = var.nsgname-prd
-  location          = var.location-prd
-  resourcegroupname = var.resourcegroupname-prd
-}
+#module "networksecuritygroup" {
+ # source = "./modules/network-security-group"
+ # nsgname           = var.nsgname-prd
+  #location          = var.location-prd
+ ## resourcegroupname = var.resourcegroupname-prd
+#}
 
