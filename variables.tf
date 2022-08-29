@@ -1,11 +1,4 @@
 
-
-variable "location" {
-  type        = string
-  description = "The azure region where the resource would be provisioned."
-}
-
-
 variable "resourcegroupname" {
   type        = string
   description = "The azure resource group name in which windows virtual machine would be provisioned."
@@ -71,7 +64,7 @@ variable "name" {
   description = "The name of azure Virtual Network."
 }
 
-variable "address prefix" {
+variable "address_prefix" {
   type        = string
   description = "The virtual network address space."
 }
