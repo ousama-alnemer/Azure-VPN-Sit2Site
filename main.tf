@@ -53,15 +53,13 @@ provider "azurerm" {
 # Call resource group module 
 module "resourcegroup" {
   source = "./modules/resource-group"
-
-  resourcegroupname = var.resourcegroupname-prd
   location          = var.location-prd
+  resourcegroupname = var.resourcegroupname-prd
 }
 
 # Call Virtual Network module
 module "virtualnetwork" {
   source = "./modules/virtual-network"
-
   vnetname          = var.vnetname-prd
   vnetaddressspace  = var.vnetaddressspace
   location          = var.location-prd
@@ -71,7 +69,6 @@ module "virtualnetwork" {
 # Call Subnet module
 module "subnet" {
   source = "./modules/subnet"
-
   subnetname         = var.subnetname-prd
   subnetaddressspace = var.subnetaddressspace-prd
   vnetname           = var.vnetname-prd
