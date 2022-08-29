@@ -53,7 +53,7 @@ provider "azurerm" {
 # Call resource group module 
 module "vnet-prd" {
   source = "./modules/vnet-prd"
-
+  resource_group_name = module.vnet-prd.azurerm_resource_group.example.name
  # vnetname          = "${var.vnetname}
   #vnetaddressspace  = var.vnetaddressspace
   location          = module.vnet-prd.azurerm_resource_group.example.location
