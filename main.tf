@@ -51,53 +51,6 @@ provider "azurerm" {
 }
 
 # Call resource group module 
-module "resourcegroup" {
-  source = "./modules/resource-group"
-  location          = var.location-prd
-  resourcegroupname = var.resourcegroupname-prd
+module "vnet-prd" {
+  source = "./modules/vnet-prd"
 }
-
-# Call Virtual Network module
-module "virtualnetwork" {
-  source = "./modules/virtual-network"
-  location          = var.location-prd
-  resourcegroupname = var.resourcegroupname-prd
-  vnetname          = var.vnetname-prd
-  vnetaddressspace  = var.vnetaddressspace-prd
-  
-}
-
-# Call Subnet module
-module "subnet" {
-  source = "./modules/subnet"
-  subnetname         = var.subnetname-prd
-  subnetaddressspace = var.subnetaddressspace-prd
-  vnetname           = var.vnetname-prd
-  location           = var.location-prd
-  resourcegroupname  = var.resourcegroupname-prd
-}
-
-# Call Public IP module
-module "publicip" {
-  source = "./modules/public-ip"
-  publicipname      = var.publicipname-prd
-  location          = var.location-prd
-  resourcegroupname = var.resourcegroupname-prd
-}
-
-# Call Network Interface module
-module "networkinterface" {
-  source = "./modules/network-interface"
-  location             = var.location-prd
-  networkinterfacename = var.networkinterfacename-prd
-  resourcegroupname    = var.resourcegroupname-prd
-}
-
-# Call Network Security Group module
-#module "networksecuritygroup" {
- # source = "./modules/network-security-group"
- # nsgname           = var.nsgname-prd
-  #location          = var.location-prd
- ## resourcegroupname = var.resourcegroupname-prd
-#}
-
