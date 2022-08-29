@@ -23,6 +23,6 @@ resource "azurerm_network_interface" "nic" {
    # subnet_id                     = var.subnetid
    # private_ip_address_allocation = "Dynamic"
    # public_ip_address_id          = var.publicipid
-  }
+#  }
 }
 
