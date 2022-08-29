@@ -1,10 +1,5 @@
 
 
-variable "location" {
-  type        = string
-  description = "The azure region where the resource would be provisioned."
-}
-
 
 variable "azurerm_resource_group" {
   type        = string
@@ -16,7 +11,7 @@ variable "name" {
   description = "The name of azure Virtual Network."
 }
 
-variable "address prefix" {
+variable "address_prefix" {
   type        = string
   description = "The virtual network address space."
 }
