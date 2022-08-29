@@ -53,9 +53,9 @@ provider "azurerm" {
 # Call resource group module 
 module "vnet-prd" {
   source = "./modules/vnet-prd"
-  azurerm_resource_group = module.vnet-prd.azurerm_resource_group.example.name
- # vnetname          = "${var.vnetname}
+  azurerm_resource_group   = module.vnet-prd.azurerm_resource_group.example.name
+  location                 = module.vnet-prd.azurerm_resource_group.example.location    
+  azurerm_virtual_network  = "example-network"
   #vnetaddressspace  = var.vnetaddressspace
-  location          = module.vnet-prd.azurerm_resource_group.example.location
-  resourcegroupname = module.vnet-prd.azurerm_resource_group.example.name
+ 
 }
