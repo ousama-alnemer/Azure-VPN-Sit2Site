@@ -1,8 +1,3 @@
-variable "environment" {
-  type        = string
-  description = ""
-  default     = ""
-}
 
 variable "location" {
   type        = string
