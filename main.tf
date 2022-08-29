@@ -72,7 +72,7 @@ module "virtualnetwork" {
 module "subnet" {
   source = "./modules/subnet"
 
-  subnetname         = subnetname-prd
+  subnetname         = var.subnetname-prd
   subnetaddressspace = var.subnetaddressspace-prd
   vnetname           = var.vnetname-prd
   location           = var.location-prd
