@@ -54,67 +54,55 @@ provider "azurerm" {
 module "resourcegroup" {
   source = "./modules/resource-group"
 
-  resourcegroupname = "${var.resourcegroupname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
-  location          = var.location
+  resourcegroupname = var.resourcegroupname-prd
+  location          = var.location-prd
 }
 
 # Call Virtual Network module
 module "virtualnetwork" {
   source = "./modules/virtual-network"
 
-  vnetname          = "${var.vnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  vnetname          = var.vnetname-prd
   vnetaddressspace  = var.vnetaddressspace
-  location          = module.resourcegroup._resourcegrouplocation
-  resourcegroupname = module.resourcegroup._resourcegroupname
+  location          = var.location-prd
+  resourcegroupname = var.resourcegroupname-prd
 }
 
 # Call Subnet module
 module "subnet" {
   source = "./modules/subnet"
 
-  subnetname         = "${var.subnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
-  subnetaddressspace = var.subnetaddressspace
-  vnetname           = module.virtualnetwork._vnetname
-  location           = module.resourcegroup._resourcegrouplocation
-  resourcegroupname  = module.resourcegroup._resourcegroupname
+  subnetname         = subnetname-prd
+  subnetaddressspace = var.subnetaddressspace-prd
+  vnetname           = var.vnetname-prd
+  location           = var.location-prd
+  resourcegroupname  = var.resourcegroupname-prd
 }
 
 # Call Public IP module
 module "publicip" {
   source = "./modules/public-ip"
 
-  publicipname      = "${var.publicipname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
-  location          = module.resourcegroup._resourcegrouplocation
-  resourcegroupname = module.resourcegroup._resourcegroupname
-  environment       = var.environment
+  publicipname      = var.publicipname-prd
+  location          = var.location-prd
+  resourcegroupname = var.resourcegroupname-prd
 }
 
 # Call Network Interface module
 module "networkinterface" {
   source = "./modules/network-interface"
 
-  networkinterfacename = "${var.networkinterfacename}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
-  subnetid             = module.subnet._subnetid
-  location             = module.resourcegroup._resourcegrouplocation
-  resourcegroupname    = module.resourcegroup._resourcegroupname
-  publicipid           = module.publicip._publicipid
+  networkinterfacename = var.networkinterfacename-prd
+  location             = var.location-prd
+  resourcegroupname    = var.resourcegroupname-prd
 }
 
 # Call Network Security Group module
 module "networksecuritygroup" {
   source = "./modules/network-security-group"
 
-  nsgname           = "${var.nsgname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
-  location          = module.resourcegroup._resourcegrouplocation
-  resourcegroupname = module.resourcegroup._resourcegroupname
-  environment       = var.environment
-}
-
-# Call the module to associate network interface with network security group
-module "associatenicnsg" {
-  source = "./modules/associate-nic-nsg"
-
-  networkinterfaceid = module.networkinterface._networkinterfaceid
-  nsgid              = module.networksecuritygroup._networksecuritygroupid
+  nsgname           = var.nsgname-prd
+  location          = var.location-prd
+  resourcegroupname = var.resourcegroupname-prd
 }
 
