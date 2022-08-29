@@ -14,15 +14,15 @@
 */
 
 resource "azurerm_network_interface" "nic" {
-  name                = var.networkinterfacename
-  location            = var.location
-  resource_group_name = var.resourcegroupname
+  name                = var.networkinterfacename-prd
+  location            = var.location-prd
+  resource_group_name = var.resourcegroupname-prd
 
-  ip_configuration {
-    name                          = "internal"
-    subnet_id                     = var.subnetid
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = var.publicipid
+ # ip_configuration {
+  #  name                          = "internal"
+   # subnet_id                     = var.subnetid
+   # private_ip_address_allocation = "Dynamic"
+   # public_ip_address_id          = var.publicipid
   }
 }
 
