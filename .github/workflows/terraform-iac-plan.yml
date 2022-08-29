@@ -28,7 +28,7 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.MVP_SUBSCRIPTION }}
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      DEPLOYMENT_ENV: dev #(options are 'dev','test','prod') 
+     # DEPLOYMENT_ENV: dev #(options are 'dev','test','prod') 
       
       
      # Steps represent a sequence of tasks that will be executed as part of the job
@@ -40,8 +40,8 @@ jobs:
       uses: actions/checkout@v3
 
     # Display the Pipeline activity to be performed
-    - name: Windows VM Terraform Plan
-      run: echo Windows VM Terraform Plan in respective environment
+    #- name: Windows VM Terraform Plan
+     # run: echo Windows VM Terraform Plan in respective environment
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token.
     - name: Setup Terraform
@@ -57,8 +57,8 @@ jobs:
       uses: actions/checkout@v3
 
     # Display the Pipeline activity to be performed
-    - name: Windows VM Terraform Plan
-      run: echo Windows VM Terraform Plan in respective environment
+    #- name: Windows VM Terraform Plan
+     # run: echo Windows VM Terraform Plan in respective environment
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token.
     - name: Setup Terraform
@@ -69,8 +69,8 @@ jobs:
       run: terraform init 
       
     # Switch the terraform workspace to specific environment, for executing plan on respective state file.
-    - name: Terraform switch to environment (dev, qa, prod) workspace
-      run: terraform workspace new $DEPLOYMENT_ENV  
+    #- name: Terraform switch to environment (dev, qa, prod) workspace
+     # run: terraform workspace new $DEPLOYMENT_ENV  
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
@@ -81,26 +81,27 @@ jobs:
       run: terraform validate
 
     # Generate the report on what would be deployed using Terraform Plan on respective environment
-    - name: Terraform Plan
-      run: terraform plan -var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars -out=tfplan
+   # - name: Terraform Plan
+    #  run: terraform plan -var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars -out=tfplan
 
           
     # Initialize Terraform working directory by creating initial files and loading remote state.
-    - name: Terraform Init            
-      run: terraform init 
+    #- name: Terraform Init            
+     # run: terraform init 
       
     # Switch the terraform workspace to specific environment, for executing plan on respective state file.
-    - name: Terraform switch to environment (dev, qa, prod) workspace
-      run: terraform workspace new $DEPLOYMENT_ENV  
+  #  - name: Terraform switch to environment (dev, qa, prod) workspace
+   #   run: terraform workspace new $DEPLOYMENT_ENV  
 
     # Checks that all Terraform configuration files adhere to a canonical format
-    - name: Terraform Format
-      run: terraform fmt
+    #- name: Terraform Format
+     # run: terraform fmt
     
     # Checks the correctioness of all Terraform files syntax
-    - name: Terraform Validate
-      run: terraform validate
+   #- name: Terraform Validate
+    #  run: terraform validate
 
     # Generate the report on what would be deployed using Terraform Plan on respective environment
     - name: Terraform Plan
-      run: terraform plan -var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars -out=tfplan
+      run: terraform plan 
+      #-var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars -out=tfplan

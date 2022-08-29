@@ -1,31 +1,16 @@
-variable "environment" {
-  type        = string
-  description = ""
-  default     = ""
-}
 
-variable "location" {
+variable "location-prd" {
   type        = string
   description = "The Azure Region where the Resource would be provisioned."
 }
 
-variable "resourcegroupname" {
+variable "resourcegroupname-prd" {
   type        = string
   description = "The Azure Resource Group Name."
 }
 
-variable "subnetid" {
-  type        = string
-  default     = ""
-  description = "The id of azure SubNet."
-}
-
-variable "networkinterfacename" {
+variable "networkinterfacename-prd" {
   type        = string
   description = "The name of azure network interface card name."
 }
 
-variable "publicipid" {
-  type        = string
-  description = "The id of the public ip address."
-}
