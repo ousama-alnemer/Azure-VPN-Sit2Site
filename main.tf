@@ -88,16 +88,14 @@ module "publicip" {
 # Call Network Interface module
 module "networkinterface" {
   source = "./modules/network-interface"
-
-  networkinterfacename = var.networkinterfacename-prd
   location             = var.location-prd
+  networkinterfacename = var.networkinterfacename-prd
   resourcegroupname    = var.resourcegroupname-prd
 }
 
 # Call Network Security Group module
 module "networksecuritygroup" {
   source = "./modules/network-security-group"
-
   nsgname           = var.nsgname-prd
   location          = var.location-prd
   resourcegroupname = var.resourcegroupname-prd
