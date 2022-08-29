@@ -60,10 +60,11 @@ module "resourcegroup" {
 # Call Virtual Network module
 module "virtualnetwork" {
   source = "./modules/virtual-network"
-  vnetname          = var.vnetname-prd
-  vnetaddressspace  = var.vnetaddressspace
   location          = var.location-prd
   resourcegroupname = var.resourcegroupname-prd
+  vnetname          = var.vnetname-prd
+  vnetaddressspace  = var.vnetaddressspace-prd
+  
 }
 
 # Call Subnet module
