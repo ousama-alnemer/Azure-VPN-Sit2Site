@@ -19,7 +19,7 @@ env:
    ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
    ARM_SUBSCRIPTION_ID: ${{ secrets.MVP_SUBSCRIPTION }}
    ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-   DEPLOYMENT_ENV: dev #(options are 'dev','test','prod') 
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -44,5 +44,5 @@ jobs:
   
     # Execute the deployment using Terraform Apply on respective environment
     - name: Terraform Apply
-      run: terraform apply -auto-approve -var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars
+      run: terraform apply -auto-approve 
   
