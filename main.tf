@@ -54,7 +54,6 @@ provider "azurerm" {
 module "vnet-prd" {
   source = "./modules/vnet-prd"
   azurerm_resource_group   = module.vnet-prd.azurerm_resource_group.example.name
-  location                 = module.vnet-prd.azurerm_resource_group.example.location    
-  azurerm_virtual_network  = module.vnet-prd.azurerm_virtual_network.example.name
+  subnet                   = module.vnet-prd.azurerm_virtual_network.subnet.name
   address_prefix           = module.vnet-prd.azurerm_virtual_network.example.address_space
 }
