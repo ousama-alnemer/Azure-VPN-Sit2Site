@@ -1,8 +1,3 @@
-variable "environment" {
-  type        = string
-  description = ""
-  default     = ""
-}
 
 variable "location" {
   type        = string
@@ -12,12 +7,6 @@ variable "location" {
 variable "resourcegroupname" {
   type        = string
   description = "The Azure Resource Group Name."
-}
-
-variable "subnetid" {
-  type        = string
-  default     = ""
-  description = "The id of azure SubNet."
 }
 
 variable "publicipname" {
