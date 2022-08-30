@@ -73,7 +73,7 @@ module "subnet" {
 # Call Subnet-firewall module
 module "subnet-firewall" {
   source = "./modules/Subnet-firewall"
-  subnetname         = "${var.subnetname-firewall}
+  subnetname         = "${var.subnetname-firewall}"
   subnetaddressspace = var.subnetaddressspace-firewall
   vnetname           = module.virtualnetwork._vnetname
   location           = module.resourcegroup._resourcegrouplocation
