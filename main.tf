@@ -102,14 +102,23 @@ module "networkinterface" {
   publicipid           = module.publicip._publicipid
 }
 
-## Call firewall module
+ ## Call firewall module
 module "firewall" {
   source = "./modules/firewall"
-  firewallname      = "${var.firewallname}"
-  location          = module.resourcegroup._resourcegrouplocation
-  resourcegroupname = module.resourcegroup._resourcegroupname
-  vnetname          = module.virtualnetwork._vnetname
-  skuname           = var.skuname
-  skutier           = var.skutier  
- 
-}
+  firewallname       = "${var.firewallname}"
+  location           = module.resourcegroup._resourcegrouplocation
+  resourcegroupname  = module.resourcegroup._resourcegroupname
+  vnetname           = module.virtualnetwork._vnetname
+  skuname            = var.skuname
+  skutier            = var.skutier  
+ }
+
+ ## Call firewall module
+module "firewallpolicy" {
+  source = "./modules/firewall"
+  firewallpolicyname = "${var.firewallpolicyname}"
+  location           = module.resourcegroup._resourcegrouplocation
+  resourcegroupname  = module.resourcegroup._resourcegroupname
+ }
+
+

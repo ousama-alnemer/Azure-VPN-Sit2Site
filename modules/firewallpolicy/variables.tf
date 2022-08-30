@@ -14,25 +14,7 @@ variable "resourcegroupname" {
   description = "The Azure Resource Group Name."
 }
 
-variable "skutier" {
+variable "firewallpolicyname" {
   type        = string
   description = "The Azure tier."
 }
-
-variable "skuname" {
-  type        = string
-  description = "The sku."
-}
-
-
-variable "vnetname" {
-  type        = string
-  description = "The name of azure Virtual Network."
-}
-
-variable "firewallname" {
-  type        = string
-  description = "The name of firewall."
-}
-
-

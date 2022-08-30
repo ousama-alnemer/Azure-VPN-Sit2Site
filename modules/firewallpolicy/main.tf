@@ -12,13 +12,9 @@
         Modified By: Anil Kumar
         Modified Date: 16 June 2022
 */
-
-resource "azurerm_firewall" "firewall" {
-  name                 = var.firewallname
-  location             = var.location
-  resource_group_name  = var.resourcegroupname
-  sku_name             = var.skuname
-  sku_tier             = var.skutier
-}
  
-
+resource "azurerm_firewall_policy" "firewallpolicy" {
+  name                = var.firewallpolicyname
+  resource_group_name = var.resourcegroupname
+  location            = var.location
+}

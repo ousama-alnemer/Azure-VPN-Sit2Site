@@ -184,4 +184,8 @@ variable "firewallname" {
   description = "The firewall name."
 }
 
+variable "firewallpolicyname" {
+  type        = string
+  description = "The firewall name."
+}
 
