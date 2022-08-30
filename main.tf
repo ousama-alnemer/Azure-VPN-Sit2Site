@@ -42,6 +42,7 @@ provider "azurerm" {
 }
 
 # Call resource group module 
+<<<<<<< HEAD
 module "resourcegroup" {
   source = "./modules/resource-group"
 
@@ -128,4 +129,13 @@ module "virtualmachine-windows" {
   vmosdiskcaching            = var.vmosdiskcaching
   vmosdiskstorageaccounttype = var.vmosdiskstorageaccounttype
 
+=======
+module "vnet-prd" {
+  source = "./modules/vnet-prd"
+  azurerm_resource_group  = module.vnet-prd.azurerm_resource_group.example.name
+  subnet                  = module.vnet-prd.azurerm_virtual_network.subnet.name
+  address_prefix          = module.vnet-prd.azurerm_virtual_network.example.address_space
+  name                    = module.vnet-pr.azurerm_virtual_network.example.name
+  security_group          = module.vnet-prd.azurerm_network_security_group.example.id
+>>>>>>> 40703b5295cd099e14904bfa636bca58b9a99761
 }
