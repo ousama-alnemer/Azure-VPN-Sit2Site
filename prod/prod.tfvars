@@ -8,7 +8,4 @@ vnetaddressspace              = "30.0.0.0/16"
 subnetaddressspace            = "30.0.2.0/24"
 location                      = "westeurope"
 containeraccesstype           = "private"
-vmosdiskcaching               = "ReadWrite"
-vmosdiskstorageaccounttype    = "StandardSSD_ZRS"
-containeraccesstype           = "private"
 
