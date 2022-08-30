@@ -178,3 +178,10 @@ variable "sku_tier" {
   type        = string
   description = "The sku_tier."
 }
+
+variable "firewallname" {
+  type        = string
+  description = "The firewall name."
+}
+
+
