@@ -103,3 +103,13 @@ module "networkinterface" {
   publicipid           = module.publicip._publicipid
 }
 
+# Call firewall module
+module "firewall" {
+  source = "./modules/firewall"
+  name              = "${var.firewallname}-${var.environment}"
+  location          = module.resourcegroup._resourcegrouplocation
+  resourcegroupname = module.resourcegroup._resourcegroupname
+  environment       = var.environment
+  sku_name          = var.sku_name
+  sku_tier          = var.tier
+}
