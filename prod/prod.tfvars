@@ -6,7 +6,7 @@ storageaccounttier            = "Standard"
 storageaccountreplicationtype = "GRS"
 vnetaddressspace              = "10.68.0.0/16"
 subnetaddressspace            = "10.68.1.0/24"
-subnetaddressspace-firewall   = "10.68.2.0/24
+subnetaddressspace-firewall   = "10.68.2.0/24"
 location                      = "westeurope"
 containeraccesstype           = "private"
 
