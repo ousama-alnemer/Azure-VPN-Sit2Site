@@ -10,6 +10,5 @@ location                      = "westeurope"
 containeraccesstype           = "private"
 vmosdiskcaching               = "ReadWrite"
 vmosdiskstorageaccounttype    = "StandardSSD_ZRS"
-=======
 containeraccesstype           = "private"
->>>>>>> 958ffd891cd384fba556640d6aedf2f91625eea5
+
