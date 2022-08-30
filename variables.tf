@@ -168,3 +168,13 @@ variable "subnetnamefirewall" {
   type        = string
   description = "The subnet address space."
 }
+
+variable "sku_name" {
+  type        = string
+  description = "The sku_name ."
+}
+
+variable "sku_tier" {
+  type        = string
+  description = "The sku_tier."
+}
