@@ -1,3 +1,4 @@
+applicationname               = "nc"
 increment                     = "002"
 environment                   = "prd"
 location                      = "westeurope"
