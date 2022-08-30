@@ -14,10 +14,10 @@
 */
 
 resource "azurerm_subnet-firewall" "subnet-firewall" {
-  name                 = var.subnetname-firewall
+  name                 = var.subnetnamefirewall
   resource_group_name  = var.resourcegroupname
   virtual_network_name = var.vnetname
-  address_prefixes     = [var.subnetaddressspace-firewall]
+  address_prefixes     = [var.subnetaddressspacefirewall]
 }
   # delegation {
   #   name = "subnet-delegation"
