@@ -115,7 +115,7 @@ module "firewall" {
 
  ## Call firewall module
 module "firewallpolicy" {
-  source = "./modules/firewall"
+  source = "./modules/firewallpolicy"
   firewallpolicyname = "${var.firewallpolicyname}"
   location           = module.resourcegroup._resourcegrouplocation
   resourcegroupname  = module.resourcegroup._resourcegroupname
