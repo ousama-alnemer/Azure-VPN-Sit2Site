@@ -4,7 +4,7 @@ resource "azurerm_local_network_gateway" "lgw" {
   resource_group_name = var.resourcegroupname
   location            = var.location
   gateway_address     = var.peergatewayaddress
-  address_space       = [var.peerIpaddress]
+  address_space       = [var.peerIpaddressrange]
 }
 
 

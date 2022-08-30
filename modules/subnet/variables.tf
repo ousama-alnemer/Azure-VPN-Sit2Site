@@ -1,25 +1,30 @@
+variable "environment" {
+  type        = string
+  description = ""
+  default     = ""
+}
 
-variable "location-prd" {
+variable "location" {
   type        = string
   description = "The Azure Region where the Resource would be provisioned."
 }
 
-variable "resourcegroupname-prd" {
+variable "resourcegroupname" {
   type        = string
   description = "The Azure Resource Group Name."
 }
 
-variable "subnetname-prd" {
+variable "subnetname" {
   type        = string
   description = "The Azure Subnet name."
 }
 
-variable "subnetaddressspace-prd" {
+variable "subnetaddressspace" {
   type        = string
   description = "The Azure Subnet address space."
 }
 
-variable "vnetname-prd" {
+variable "vnetname" {
   type        = string
   description = "The name of azure Virtual Network."
 }

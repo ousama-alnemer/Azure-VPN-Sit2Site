@@ -12,14 +12,6 @@
         Creation Date: 15 June 2022
         Modified By: Anil Kumar
         Modified Date: 16 June 2022
-            
-             # Backend setup to maintain Terraform state file
-  backend "azurerm" {
-    resource_group_name  = "terraform-rg"
-    storage_account_name = "abcd1234abcd"
-    container_name       = "tfstate"
-    key                  = "winterraform.tfstate"
-  }
 */
 
 terraform {
@@ -30,16 +22,15 @@ terraform {
     }
   }
   required_version = ">= 0.14.9"
- # Backend setup to maintain Terraform state file
+
+  # Backend setup to maintain Terraform state file
   backend "azurerm" {
     resource_group_name  = "terraform-rg"
     storage_account_name = "abcd1234abcd"
     container_name       = "tfstate"
     key                  = "winterraform.tfstate"
   }
- 
 }
-
 
            
 
@@ -51,6 +42,90 @@ provider "azurerm" {
 }
 
 # Call resource group module 
-module "vnet-prd" {
-  source = "./modules/vnet-prd"
+module "resourcegroup" {
+  source = "./modules/resource-group"
+
+  resourcegroupname = "${var.resourcegroupname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  location          = var.location
+}
+
+# Call Virtual Network module
+module "virtualnetwork" {
+  source = "./modules/virtual-network"
+
+  vnetname          = "${var.vnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  vnetaddressspace  = var.vnetaddressspace
+  location          = module.resourcegroup._resourcegrouplocation
+  resourcegroupname = module.resourcegroup._resourcegroupname
+}
+
+# Call Subnet module
+module "subnet" {
+  source = "./modules/subnet"
+
+  subnetname         = "${var.subnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  subnetaddressspace = var.subnetaddressspace
+  vnetname           = module.virtualnetwork._vnetname
+  location           = module.resourcegroup._resourcegrouplocation
+  resourcegroupname  = module.resourcegroup._resourcegroupname
+}
+
+# Call Public IP module
+module "publicip" {
+  source = "./modules/public-ip"
+
+  publicipname      = "${var.publicipname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  location          = module.resourcegroup._resourcegrouplocation
+  resourcegroupname = module.resourcegroup._resourcegroupname
+  environment       = var.environment
+}
+
+# Call Network Interface module
+module "networkinterface" {
+  source = "./modules/network-interface"
+
+  networkinterfacename = "${var.networkinterfacename}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  subnetid             = module.subnet._subnetid
+  location             = module.resourcegroup._resourcegrouplocation
+  resourcegroupname    = module.resourcegroup._resourcegroupname
+  publicipid           = module.publicip._publicipid
+}
+
+# Call Network Security Group module
+module "networksecuritygroup" {
+  source = "./modules/network-security-group"
+
+  nsgname           = "${var.nsgname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  location          = module.resourcegroup._resourcegrouplocation
+  resourcegroupname = module.resourcegroup._resourcegroupname
+  environment       = var.environment
+}
+
+# Call the module to associate network interface with network security group
+module "associatenicnsg" {
+  source = "./modules/associate-nic-nsg"
+
+  networkinterfaceid = module.networkinterface._networkinterfaceid
+  nsgid              = module.networksecuritygroup._networksecuritygroupid
+}
+
+# Call Windows Virtual Machine module
+module "virtualmachine-windows" {
+  source = "./modules/vm-windows"
+
+  vmname                     = "${var.vmname}${var.applicationname}${var.environment}${var.locationacronym}${var.increment}"
+  location                   = module.resourcegroup._resourcegrouplocation
+  resourcegroupname          = module.resourcegroup._resourcegroupname
+  networkinterfacename       = var.networkinterfacename
+  networkinterfaceid         = module.networkinterface._networkinterfaceid
+  vmsize                     = var.vmsize
+  vmadminusername            = var.vmadminusername
+  vmadminuserpassword        = var.vmadminuserpassword
+  vmimagepublisher           = var.vmimagepublisher
+  vmimageoffer               = var.vmimageoffer
+  vmimagesku                 = var.vmimagesku
+  vmimageversion             = var.vmimageversion
+  vmosdiskcaching            = var.vmosdiskcaching
+  vmosdiskstorageaccounttype = var.vmosdiskstorageaccounttype
+
 }

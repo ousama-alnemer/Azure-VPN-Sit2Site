@@ -1,7 +1,7 @@
 
 
 
-variable "azurerm_resource_group" {
+variable "example-resources" {
   type        = string
   description = "The azure resource group name in which windows virtual machine would be provisioned."
 }

@@ -14,9 +14,9 @@
 */
 
 resource "azurerm_virtual_network" "vnet" {
-  name                = var.vnetname-prd
-  address_space       = [var.vnetaddressspace-prd]
-  location            = var.location-prd
-  resource_group_name = var.resourcegroupname-prd
+  name                = var.vnetname
+  address_space       = [var.vnetaddressspace]
+  location            = var.location
+  resource_group_name = var.resourcegroupname
 }
 

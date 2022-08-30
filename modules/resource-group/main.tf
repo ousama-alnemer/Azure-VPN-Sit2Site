@@ -14,6 +14,6 @@
 
 # Create the resource group for hosting Windows Virtual machine and it's resources
 resource "azurerm_resource_group" "rg" {
-  name     = var.resourcegroupname-prd
-  location = var.location-prd
+  name     = var.resourcegroupname
+  location = var.location
 }

@@ -14,10 +14,10 @@
 */
 
 resource "azurerm_subnet" "subnet" {
-  name                 = var.subnetname-prd
-  resource_group_name  = var.resourcegroupname-prd
-  virtual_network_name = var.vnetname-prd
-  address_prefixes     = [var.subnetaddressspace-prd]
+  name                 = var.subnetname
+  resource_group_name  = var.resourcegroupname
+  virtual_network_name = var.vnetname
+  address_prefixes     = [var.subnetaddressspace]
 
   # delegation {
   #   name = "subnet-delegation"
