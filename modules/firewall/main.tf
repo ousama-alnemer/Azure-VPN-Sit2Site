@@ -14,12 +14,13 @@
 */
 
 resource "azurerm_firewall" "firewall" {
-  name                 = var.firewall
+  name                 = var.firewallname
   location             = var.location
   resource_group_name  = var.resourcegroupname
   virtual_network_name = var.vnetname
-  sku_name             =
-  sku_tier             = 
+  sku_name             = var.sku_name
+  sku_tier             = var.sku_tier
+  publicipname         = var.publicipname
 }
   # delegation {
   #   name = "subnet-delegation"
