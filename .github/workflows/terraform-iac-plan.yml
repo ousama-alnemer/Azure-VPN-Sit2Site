@@ -36,13 +36,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    # Display the Pipeline activity to be performed
-    - name: Windows VM Terraform Plan
-      run: echo Windows VM Terraform Plan in respective environment
-
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token.
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
+
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+         creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.MVP_SUBSCRIPTION }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'  
     
     # Initialize Terraform working directory by creating initial files and loading remote state.
     - name: Terraform Init            

@@ -21,6 +21,7 @@ env:
    ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
    DEPLOYMENT_ENV: prod #(options are 'dev','test','prod') 
 
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains jobs called "terraform-apply" & 'terraform-destroy'
@@ -38,6 +39,11 @@ jobs:
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token.
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
+    
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+         creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.MVP_SUBSCRIPTION }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}' 
     
     # Initialize Terraform working directory by creating initial files and loading remote state.
     - name: Terraform Init
