@@ -19,16 +19,6 @@ variable "subnetnamefirewall" {
   description = "The Azure Subnet name."
 }
 
-variable "subnetname" {
-  type        = string
-  description = "The Azure Subnet name."
-}
-
-variable "subnetaddressspace" {
-  type        = string
-  description = "The Azure Subnet address space."
-}
-
 variable "subnetaddressspacefirewall" {
   type        = string
   description = "The Azure Subnet address space."
