@@ -44,14 +44,16 @@ provider "azurerm" {
 # Call resource group module 
 module "resourcegroup" {
   source = "./modules/resource-group"
-  resourcegroupname = "${var.resourcegroupname}-${var.environment}
+
+  resourcegroupname = "${var.resourcegroupname}-${var.environment}"
   location          = var.location
 }
 
 # Call Virtual Network module
 module "virtualnetwork" {
   source = "./modules/virtual-network"
-  vnetname          = "${var.vnetname}-${var.environment}
+
+  vnetname          = "${var.vnetname}-${var.environment}"
   vnetaddressspace  = var.vnetaddressspace
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
@@ -60,7 +62,8 @@ module "virtualnetwork" {
 # Call Subnet module
 module "subnet" {
   source = "./modules/subnet"
-  subnetname         = "${var.subnetname}-${var.environment}
+
+  subnetname         = "${var.subnetname}-${var.environment}"
   subnetaddressspace = var.subnetaddressspace
   vnetname           = module.virtualnetwork._vnetname
   location           = module.resourcegroup._resourcegrouplocation
@@ -70,7 +73,8 @@ module "subnet" {
 # Call Public IP module
 module "publicip" {
   source = "./modules/public-ip"
-  publicipname      = "${var.publicipname}-${var.environment}
+
+  publicipname      = "${var.publicipname}-${var.environment}"
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
   environment       = var.environment
@@ -79,9 +83,11 @@ module "publicip" {
 # Call Network Interface module
 module "networkinterface" {
   source = "./modules/network-interface"
-  networkinterfacename = "${var.networkinterfacename}-${var.environment}
+
+  networkinterfacename = "${var.networkinterfacename}-${var.environment}"
   subnetid             = module.subnet._subnetid
   location             = module.resourcegroup._resourcegrouplocation
   resourcegroupname    = module.resourcegroup._resourcegroupname
   publicipid           = module.publicip._publicipid
 }
+
