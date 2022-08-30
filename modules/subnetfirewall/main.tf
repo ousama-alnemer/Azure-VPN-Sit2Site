@@ -14,7 +14,7 @@
 */
 
 resource "azurerm_subnet-firewall" "subnetfirewall" {
-  name                 = var.subnetnamefirewall
+  name                 = AzureFirewallSubnet
   resource_group_name  = var.resourcegroupname
   virtual_network_name = var.vnetname
   address_prefixes     = [var.subnetaddressspacefirewall]
