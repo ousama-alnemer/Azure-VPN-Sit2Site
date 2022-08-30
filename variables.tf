@@ -157,4 +157,9 @@ variable "publicipname" {
 variable "publicipid" {
   type        = string
   description = "The id of the public ip address."
+} 
+  
+variable "subnetaddressspace-firewall" {
+  type        = string
+  description = "The subnet address space."
 }
