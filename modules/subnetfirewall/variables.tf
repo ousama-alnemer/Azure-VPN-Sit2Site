@@ -14,7 +14,7 @@ variable "resourcegroupname" {
   description = "The Azure Resource Group Name."
 }
 
-variable "subnetname-firewall" {
+variable "subnetnamefirewall" {
   type        = string
   description = "The Azure Subnet name."
 }
@@ -29,7 +29,7 @@ variable "subnetaddressspace" {
   description = "The Azure Subnet address space."
 }
 
-variable "subnetaddressspace-firewall" {
+variable "subnetaddressspacefirewall" {
   type        = string
   description = "The Azure Subnet address space."
 }
