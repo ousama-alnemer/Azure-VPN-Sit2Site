@@ -14,12 +14,12 @@ variable "resourcegroupname" {
   description = "The Azure Resource Group Name."
 }
 
-variable "tier_name" {
+variable "skutier" {
   type        = string
   description = "The Azure tier."
 }
 
-variable "sku_name" {
+variable "skuname" {
   type        = string
   description = "The sku."
 }

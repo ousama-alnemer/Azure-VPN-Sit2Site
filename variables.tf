@@ -169,12 +169,12 @@ variable "subnetnamefirewall" {
   description = "The subnet address space."
 }
 
-variable "sku_name" {
+variable "skuname" {
   type        = string
   description = "The sku_name ."
 }
 
-variable "sku_tier" {
+variable "skutier" {
   type        = string
   description = "The sku_tier."
 }
