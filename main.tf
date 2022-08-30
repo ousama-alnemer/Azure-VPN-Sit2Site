@@ -45,7 +45,7 @@ provider "azurerm" {
 module "resourcegroup" {
   source = "./modules/resource-group"
 
-  resourcegroupname = "${var.resourcegroupname}-${var.environment}"
+  resourcegroupname = "${var.resourcegroupname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
   location          = var.location
 }
 
@@ -53,7 +53,7 @@ module "resourcegroup" {
 module "virtualnetwork" {
   source = "./modules/virtual-network"
 
-  vnetname          = "${var.vnetname}-${var.environment}"
+  vnetname          = "${var.vnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
   vnetaddressspace  = var.vnetaddressspace
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
@@ -63,7 +63,7 @@ module "virtualnetwork" {
 module "subnet" {
   source = "./modules/subnet"
 
-  subnetname         = "${var.subnetname}-${var.environment}"
+  subnetname         = "${var.subnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
   subnetaddressspace = var.subnetaddressspace
   vnetname           = module.virtualnetwork._vnetname
   location           = module.resourcegroup._resourcegrouplocation
@@ -74,7 +74,7 @@ module "subnet" {
 module "publicip" {
   source = "./modules/public-ip"
 
-  publicipname      = "${var.publicipname}-${var.environment}"
+  publicipname      = "${var.publicipname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
   environment       = var.environment
@@ -84,7 +84,7 @@ module "publicip" {
 module "networkinterface" {
   source = "./modules/network-interface"
 
-  networkinterfacename = "${var.networkinterfacename}-${var.environment}"
+  networkinterfacename = "${var.networkinterfacename}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
   subnetid             = module.subnet._subnetid
   location             = module.resourcegroup._resourcegrouplocation
   resourcegroupname    = module.resourcegroup._resourcegroupname
