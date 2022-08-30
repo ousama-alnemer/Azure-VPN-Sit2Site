@@ -112,4 +112,5 @@ module "firewall" {
   environment       = var.environment
   sku_name          = var.sku_name
   sku_tier          = var.tier
+  publicipname      = var.publicipname
 }
