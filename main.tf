@@ -74,7 +74,6 @@ module "subnet" {
 module "subnetfirewall" {
   source = "./modules/subnetfirewall"
   subnetnamefirewall         = "${var.subnetnamefirewall}"
-  subnetname                 =" ${var.subnetnamefirewall}" 
   subnetaddressspacefirewall = var.subnetaddressspacefirewall
   vnetname                   = module.virtualnetwork._vnetname
   location                   = module.resourcegroup._resourcegrouplocation
