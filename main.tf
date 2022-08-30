@@ -111,6 +111,6 @@ module "firewall" {
   resourcegroupname = module.resourcegroup._resourcegroupname
   environment       = var.environment
   sku_name          = var.sku_name
-  sku_tier          = var.tier_name
+  sku_tier          = var.sku_tier
   vnetname          = module.virtualnetwork._vnetname
 }
