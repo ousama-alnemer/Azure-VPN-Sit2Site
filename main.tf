@@ -42,11 +42,10 @@ provider "azurerm" {
 }
 
 # Call resource group module 
-<<<<<<< HEAD
 module "resourcegroup" {
   source = "./modules/resource-group"
 
-  resourcegroupname = "${var.resourcegroupname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  resourcegroupname = "${var.resourcegroupname}-${var.environment}"
   location          = var.location
 }
 
@@ -54,7 +53,7 @@ module "resourcegroup" {
 module "virtualnetwork" {
   source = "./modules/virtual-network"
 
-  vnetname          = "${var.vnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  vnetname          = "${var.vnetname}-${var.environment}"
   vnetaddressspace  = var.vnetaddressspace
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
@@ -64,7 +63,7 @@ module "virtualnetwork" {
 module "subnet" {
   source = "./modules/subnet"
 
-  subnetname         = "${var.subnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  subnetname         = "${var.subnetname}-${var.environment}"
   subnetaddressspace = var.subnetaddressspace
   vnetname           = module.virtualnetwork._vnetname
   location           = module.resourcegroup._resourcegrouplocation
@@ -75,7 +74,7 @@ module "subnet" {
 module "publicip" {
   source = "./modules/public-ip"
 
-  publicipname      = "${var.publicipname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  publicipname      = "${var.publicipname}-${var.environment}"
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
   environment       = var.environment
@@ -85,57 +84,9 @@ module "publicip" {
 module "networkinterface" {
   source = "./modules/network-interface"
 
-  networkinterfacename = "${var.networkinterfacename}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  networkinterfacename = "${var.networkinterfacename}-${var.environment}"
   subnetid             = module.subnet._subnetid
   location             = module.resourcegroup._resourcegrouplocation
   resourcegroupname    = module.resourcegroup._resourcegroupname
   publicipid           = module.publicip._publicipid
-}
-
-# Call Network Security Group module
-module "networksecuritygroup" {
-  source = "./modules/network-security-group"
-
-  nsgname           = "${var.nsgname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
-  location          = module.resourcegroup._resourcegrouplocation
-  resourcegroupname = module.resourcegroup._resourcegroupname
-  environment       = var.environment
-}
-
-# Call the module to associate network interface with network security group
-module "associatenicnsg" {
-  source = "./modules/associate-nic-nsg"
-
-  networkinterfaceid = module.networkinterface._networkinterfaceid
-  nsgid              = module.networksecuritygroup._networksecuritygroupid
-}
-
-# Call Windows Virtual Machine module
-module "virtualmachine-windows" {
-  source = "./modules/vm-windows"
-
-  vmname                     = "${var.vmname}${var.applicationname}${var.environment}${var.locationacronym}${var.increment}"
-  location                   = module.resourcegroup._resourcegrouplocation
-  resourcegroupname          = module.resourcegroup._resourcegroupname
-  networkinterfacename       = var.networkinterfacename
-  networkinterfaceid         = module.networkinterface._networkinterfaceid
-  vmsize                     = var.vmsize
-  vmadminusername            = var.vmadminusername
-  vmadminuserpassword        = var.vmadminuserpassword
-  vmimagepublisher           = var.vmimagepublisher
-  vmimageoffer               = var.vmimageoffer
-  vmimagesku                 = var.vmimagesku
-  vmimageversion             = var.vmimageversion
-  vmosdiskcaching            = var.vmosdiskcaching
-  vmosdiskstorageaccounttype = var.vmosdiskstorageaccounttype
-
-=======
-module "vnet-prd" {
-  source = "./modules/vnet-prd"
-  azurerm_resource_group  = module.vnet-prd.azurerm_resource_group.example.name
-  subnet                  = module.vnet-prd.azurerm_virtual_network.subnet.name
-  address_prefix          = module.vnet-prd.azurerm_virtual_network.example.address_space
-  name                    = module.vnet-pr.azurerm_virtual_network.example.name
-  security_group          = module.vnet-prd.azurerm_network_security_group.example.id
->>>>>>> 40703b5295cd099e14904bfa636bca58b9a99761
 }
