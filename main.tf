@@ -109,7 +109,7 @@ module "firewall" {
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
   vnetname          = module.virtualnetwork._vnetname
-  sku_name          = var.skuname
-  sku_tier          = var.skutier  
+  skuname           = var.skuname
+  skutier           = var.skutier  
  
 }
