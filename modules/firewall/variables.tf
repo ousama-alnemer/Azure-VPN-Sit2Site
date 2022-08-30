@@ -29,3 +29,8 @@ variable "vnetname" {
   type        = string
   description = "The name of azure Virtual Network."
 }
+
+variable "firewallname" {
+  type        = string
+  description = "The name of firewall."
+}

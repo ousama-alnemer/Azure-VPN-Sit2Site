@@ -18,3 +18,6 @@ variable "nsgname" {
   type        = string
   description = "The name of azure Network Security Group."
 }
+
+
+
