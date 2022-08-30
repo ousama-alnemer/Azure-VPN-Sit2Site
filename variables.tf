@@ -159,12 +159,12 @@ variable "publicipid" {
   description = "The id of the public ip address."
 } 
   
-variable "subnetaddressspace-firewall" {
+variable "subnetaddressspacefirewall" {
   type        = string
   description = "The subnet address space."
 }
 
-variable "subnetname-firewall" {
+variable "subnetnamefirewall" {
   type        = string
   description = "The subnet address space."
 }
