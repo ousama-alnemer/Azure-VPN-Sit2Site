@@ -1,6 +1,6 @@
 applicationname               = "nc"
 increment                     = "002"
-environment                   = "prd"
+environment                   = "prod"
 location                      = "westeurope"
 resourcegroupname             = "rg"
 vnetname                      = "vnet"
