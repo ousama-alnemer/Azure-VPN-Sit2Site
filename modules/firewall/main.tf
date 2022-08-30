@@ -24,6 +24,7 @@ resource "azurerm_firewall" "firewall" {
 }
   # delegation {
   #   name = "subnet-delegation"
+  #
   #   service_delegation {
   #     name    = "Microsoft.Web/serverFarms"
   #     actions = ["Microsoft.Network/virtualNetworks/subnets/action"]

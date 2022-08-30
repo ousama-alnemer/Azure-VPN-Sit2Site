@@ -95,7 +95,6 @@ module "publicip" {
 # Call Network Interface module
 module "networkinterface" {
   source = "./modules/network-interface"
-
   networkinterfacename = "${var.networkinterfacename}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
   subnetid             = module.subnet._subnetid
   location             = module.resourcegroup._resourcegrouplocation
@@ -106,11 +105,9 @@ module "networkinterface" {
 # Call firewall module
 module "firewall" {
   source = "./modules/firewall"
-  name              = "${var.firewallname}-${var.environment}"
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
   environment       = var.environment
   sku_name          = var.sku_name
-  sku_tier          = var.sku_tier
   vnetname          = module.virtualnetwork._vnetname
 }
