@@ -13,7 +13,7 @@
         Modified Date: 16 June 2022
 */
 
-resource "azurerm_subnet" "subnet-firewall" {
+resource "azurerm_subnet-firewall" "subnet-firewall" {
   name                 = var.subnetname-firewall
   resource_group_name  = var.resourcegroupname
   virtual_network_name = var.vnetname

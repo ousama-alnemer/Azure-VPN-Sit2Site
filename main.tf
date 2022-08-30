@@ -70,6 +70,19 @@ module "subnet" {
   resourcegroupname  = module.resourcegroup._resourcegroupname
 }
 
+# Call Subnet-firewall module
+module "subnet" {
+  source = "./modules/Subnet-firewall"
+
+  subnetname         = "${var.subnetname-firewall}
+  subnetaddressspace = var.subnetaddressspace-firewall
+  vnetname           = module.virtualnetwork._vnetname
+  location           = module.resourcegroup._resourcegrouplocation
+  resourcegroupname  = module.resourcegroup._resourcegroupname
+}
+
+
+
 # Call Public IP module
 module "publicip" {
   source = "./modules/public-ip"
