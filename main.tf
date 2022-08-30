@@ -105,10 +105,11 @@ module "networkinterface" {
 ## Call firewall module
 module "firewall" {
   source = "./modules/firewall"
-  firewallname      = "${var.firewallname}
+  firewallname      = "${var.firewallname}"
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
+  vnetname          = module.virtualnetwork._vnetname
   sku_name          = var.skuname
   sku_tier          = var.skutier  
-  vnetname          = module.virtualnetwork._vnetname
+ 
 }
