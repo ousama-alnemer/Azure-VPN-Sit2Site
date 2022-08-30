@@ -163,3 +163,8 @@ variable "subnetaddressspace-firewall" {
   type        = string
   description = "The subnet address space."
 }
+
+variable "subnetname-firewall" {
+  type        = string
+  description = "The subnet address space."
+}
