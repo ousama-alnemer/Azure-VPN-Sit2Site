@@ -63,23 +63,23 @@ module "virtualnetwork" {
 module "subnet" {
   source = "./modules/subnet"
 
-  subnetname                 = "${var.subnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
-  subnetaddressspace         = var.subnetaddressspace
+  subnetname         = "${var.subnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  subnetaddressspace = var.subnetaddressspace
+  vnetname           = module.virtualnetwork._vnetname
+  location           = module.resourcegroup._resourcegrouplocation
+  resourcegroupname  = module.resourcegroup._resourcegroupname
+}
+
+# Call Subnetfirewall module
+module "subnetfirewall" {
+  source = "./modules/subnetfirewall"
   subnetnamefirewall         = "${var.subnetnamefirewall}"
+  subnetname                 =" ${var.subnetnamefirewall}" 
   subnetaddressspacefirewall = var.subnetaddressspacefirewall
   vnetname                   = module.virtualnetwork._vnetname
   location                   = module.resourcegroup._resourcegrouplocation
   resourcegroupname          = module.resourcegroup._resourcegroupname
 }
-
-# Call Subnetfirewall module
-#module "subnetfirewall" {
-#  source = "./modules/subnetfirewall"
-  
- # vnetname                   = module.virtualnetwork._vnetname
- # location                   = module.resourcegroup._resourcegrouplocation
- # resourcegroupname          = module.resourcegroup._resourcegroupname
-#}
 
 
 
