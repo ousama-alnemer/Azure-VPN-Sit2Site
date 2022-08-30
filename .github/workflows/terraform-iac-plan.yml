@@ -59,7 +59,8 @@ jobs:
     # Checks the correctioness of all Terraform files syntax
     - name: Terraform Validate
       run: terraform validate
-
+    - name: Terraform Validate
+      run: terraform force-unlock 
     # Generate the report on what would be deployed using Terraform Plan on respective environment
     - name: Terraform Plan
       run:  terraform plan -var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars -out=tfplan
