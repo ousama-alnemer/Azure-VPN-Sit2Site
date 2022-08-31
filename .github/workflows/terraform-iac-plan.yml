@@ -63,4 +63,4 @@ jobs:
    
     # Generate the report on what would be deployed using Terraform Plan on respective environment
     - name: Terraform Plan
-      run:  terraform plan -var-file prod.tfvars -out=tfplan
+      run:  terraform plan -var-file DEPLOYMENT_ENV: prod.tfvars -out=tfplan
