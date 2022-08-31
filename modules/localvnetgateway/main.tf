@@ -4,6 +4,6 @@ resource "azurerm_local_network_gateway" "localvnetgetway" {
   resource_group_name        = var.resourcegroupname
   location                   = var.location
   gateway_address            = var.peergatewayaddress
-  peeraddress_space          = var.peeraddressspace
+  address_space              = var.peeraddressspace
 }
 
