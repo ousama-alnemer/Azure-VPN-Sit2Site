@@ -7,7 +7,7 @@ resource "azurerm_virtual_network_gateway" "vpngateway" {
    ip_configuration {
    name                          = var.publicipname
    public_ip_address_id          = var.publicipid
-   subnet_id                     = azurerm_subnet.subnetvpn.id
+  # subnet_id                     = azurerm_subnet.subnetvpn.id
   }
 }
 
