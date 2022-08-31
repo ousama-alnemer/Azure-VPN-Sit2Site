@@ -113,7 +113,7 @@ module "networkinterface" {
  #}
 
  ## Call firewall module
-module "firewallpolicy" {
+#module "firewallpolicy" {
  # source = "./modules/firewallpolicy"
   #firewallpolicyname = "${var.firewallpolicyname}"
  # location           = module.resourcegroup._resourcegrouplocation
