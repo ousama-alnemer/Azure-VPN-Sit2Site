@@ -16,3 +16,19 @@ firewallname                  = "firewall-prod"
 peeraddressspace              = "10.66.0.0/16"
 peergatewayaddress            = "178.155.227.114"
 peervnetgetwayname            = "localvnetgateway"
+subnetnamevpn                 = "GatewaySubnet"
+subnetaddressvpn              = "vpnazuretoaws"v
+privateip                     = "10.100.0.0/24"
+vpngatewayname                = "vpngateway"
+skuvalue                      = "basic" 
+
+
+
+
+
+
+
+
+
+
+
