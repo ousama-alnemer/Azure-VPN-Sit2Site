@@ -97,7 +97,7 @@ module "localvnetgateway" {
   peeraddressspace      = var.peeraddressspace
  }
 
-
+/*
   ## Call vpngateway module
 module "vpngateway" {
   source = "./modules/vpngateway"
@@ -106,11 +106,11 @@ module "vpngateway" {
   resourcegroupname     = module.resourcegroup._resourcegroupname
   skuvalue              = var.skuvalue
   subnetvpn             = var.subnetnamevpn
- # publicipname          = module.publicip._publicipname
+  publicipname          = module.publicip._publicipname
  # publicipid            = module.razurerm_publicip.publicipid
 }
 
-/*
+
 
 publicipname          = module.publicip._publicipname
  
