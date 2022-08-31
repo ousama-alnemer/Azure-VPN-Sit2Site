@@ -70,7 +70,7 @@ module "subnet" {
 # #Call Subnet module
 module "subnetvpngateway" {
   source = "./modules/subnetvpngateway"
-  subnetnamevpn         = "${var.subnetname}"
+  subnetnamevpn         = "${var.subnetnamevpn}"
   subnetaddressvpn      = var.subnetaddressvpn
   vnetname              = module.virtualnetwork._vnetname
   location              = module.resourcegroup._resourcegrouplocation
@@ -105,7 +105,7 @@ module "vpngateway" {
   location              = module.resourcegroup._resourcegrouplocation
   resourcegroupname     = module.resourcegroup._resourcegroupname
   skuvalue              = var.skuvalue
-  subnetnamevpn         = module.localvnetgateway._peervnetgetwayname
+  subnetnamevpn         = module.subnetvpngateway._subnetnamevpn
    
 }
 
