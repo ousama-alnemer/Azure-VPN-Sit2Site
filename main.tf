@@ -105,7 +105,7 @@ module "vpngateway" {
   location              = module.resourcegroup._resourcegrouplocation
   resourcegroupname     = module.resourcegroup._resourcegroupname
   skuvalue              = var.skuvalue
-  subnetnamevpn         = module.subnetvpngateway._subnetnamevpn
+  subnetvpn             = module.subnetvpngateway._subnetnamevpn
    
 }
 
