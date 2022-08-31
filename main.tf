@@ -103,23 +103,22 @@ module "networkinterface" {
 }
 
  ## Call firewall module
-module "firewall" {
-  source = "./modules/firewall"
-  firewallname       = "${var.firewallname}"
-  location           = module.resourcegroup._resourcegrouplocation
-  resourcegroupname  = module.resourcegroup._resourcegroupname
-  vnetname           = module.virtualnetwork._vnetname
-  skuname            = var.skuname
-  skutier            = var.skutier  
- }
+#module "firewall" {
+ # firewallname       = "${var.firewallname}"
+ # location           = module.resourcegroup._resourcegrouplocation
+ # resourcegroupname  = module.resourcegroup._resourcegroupname
+ # vnetname           = module.virtualnetwork._vnetname
+ # skuname            = var.skuname
+ # skutier            = var.skutier  
+ #}
 
  ## Call firewall module
 module "firewallpolicy" {
-  source = "./modules/firewallpolicy"
-  firewallpolicyname = "${var.firewallpolicyname}"
-  location           = module.resourcegroup._resourcegrouplocation
-  resourcegroupname  = module.resourcegroup._resourcegroupname
- }
+ # source = "./modules/firewallpolicy"
+  #firewallpolicyname = "${var.firewallpolicyname}"
+ # location           = module.resourcegroup._resourcegrouplocation
+ # resourcegroupname  = module.resourcegroup._resourcegroupname
+ #}
 
   ## Call localvnetgateway module
 module "localvnetgateway" {
