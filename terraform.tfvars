@@ -37,6 +37,6 @@ skutier                       = "Standard"
 firewallname                  = "firewall-prod"
 firewallpolicyname            = "firewallpolicy-prod"
 peeraddressspace              = "178.155.227.114"
-peergatewayaddress            = "10.66.0.0"
+peergatewayaddress            = "10.66.0.0/16"
 peervnetgetwayname            = "localvnetgateway"   
 
