@@ -67,9 +67,9 @@ module "subnet" {
   resourcegroupname  = module.resourcegroup._resourcegroupname
 }
 
-# Call Subnet module
-module "subnetvpn" {
-  source = "./modules/subnetvpn"
+# #Call Subnet module
+module "subnetvpngateway" {
+  source = "./modules/subnetvpngateway"
   subnetnamevpn         = "${var.subnetname}"
   subnetaddressvpn      = var.subnetaddressvpn
   vnetname              = module.virtualnetwork._vnetname
