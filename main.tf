@@ -12,6 +12,7 @@
         Creation Date: 15 June 2022
         Modified By: Anil Kumar
         Modified Date: 16 June 2022
+        -
 */
 
 terraform {
@@ -33,10 +34,7 @@ terraform {
 }
 
            
-
-
-
-# Azure Cloud Provider name
+## Azure Cloud Provider name
 provider "azurerm" {
   features {}
 }
@@ -52,7 +50,6 @@ module "resourcegroup" {
 # Call Virtual Network module
 module "virtualnetwork" {
   source = "./modules/virtual-network"
-
   vnetname          = "${var.vnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
   vnetaddressspace  = var.vnetaddressspace
   location          = module.resourcegroup._resourcegrouplocation
@@ -70,18 +67,6 @@ module "subnet" {
   resourcegroupname  = module.resourcegroup._resourcegroupname
 }
 
-# Call Subnetfirewall module
-module "subnetfirewall" {
-  source = "./modules/subnetfirewall"
-  subnetnamefirewall         = "${var.subnetnamefirewall}"
-  subnetaddressspacefirewall = var.subnetaddressspacefirewall
-  vnetname                   = module.virtualnetwork._vnetname
-  location                   = module.resourcegroup._resourcegrouplocation
-  resourcegroupname          = module.resourcegroup._resourcegroupname
-}
-
-
-
 # Call Public IP module
 module "publicip" {
   source = "./modules/public-ip"
@@ -92,34 +77,6 @@ module "publicip" {
   environment       = var.environment
 }
 
-# Call Network Interface module
-module "networkinterface" {
-  source = "./modules/network-interface"
-  networkinterfacename = "${var.networkinterfacename}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
-  subnetid             = module.subnet._subnetid
-  location             = module.resourcegroup._resourcegrouplocation
-  resourcegroupname    = module.resourcegroup._resourcegroupname
-  publicipid           = module.publicip._publicipid
-}
-
- ## Call firewall module
-#module "firewall" {
- # firewallname       = "${var.firewallname}"
- # location           = module.resourcegroup._resourcegrouplocation
- # resourcegroupname  = module.resourcegroup._resourcegroupname
- # vnetname           = module.virtualnetwork._vnetname
- # skuname            = var.skuname
- # skutier            = var.skutier  
- #}
-
- ## Call firewall module
-#module "firewallpolicy" {
- # source = "./modules/firewallpolicy"
-  #firewallpolicyname = "${var.firewallpolicyname}"
- # location           = module.resourcegroup._resourcegrouplocation
- # resourcegroupname  = module.resourcegroup._resourcegroupname
- #}
-
   ## Call localvnetgateway module
 module "localvnetgateway" {
   source = "./modules/localvnetgateway"
@@ -129,4 +86,3 @@ module "localvnetgateway" {
   peergatewayaddress    = var.peergatewayaddress
   peeraddressspace      = var.peeraddressspace
  }
-
