@@ -105,12 +105,13 @@ module "vpngateway" {
   location              = module.resourcegroup._resourcegrouplocation
   resourcegroupname     = module.resourcegroup._resourcegroupname
   skuvalue              = var.skuvalue
-  publicipname          = module.razurerm_public_ip.publicipname
-  
+   
 }
 
 
 /*
+publicipname          = module.razurerm_public_ip.publicipname
+ 
 ip_configuration {
     name                          = var.publicipname
     public_ip_address_id          = var.publicipid
