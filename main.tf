@@ -87,7 +87,7 @@ module "publicip" {
   environment       = var.environment
 }
 
-  ## Call localvnetgateway module
+ # ## Call localvnetgateway module
 module "localvnetgateway" {
   source = "./modules/localvnetgateway"
   peervnetgetwayname    = "${var.peervnetgetwayname}"
