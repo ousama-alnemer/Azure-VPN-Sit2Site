@@ -24,10 +24,10 @@ variable "skuvalue" {
   description = "The name of azure Virtual Network."
 }
 
-#variable "privateip" {
-#  type        = string
-#  description = "The name of azure Virtual Network."
-#}
+variable "subnetvpn" {
+  type        = string
+  description = "The name of azure Virtual Network."
+}
 
 #variable "publicipname" {
 #  type        = string
