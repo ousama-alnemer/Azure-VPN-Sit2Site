@@ -123,7 +123,7 @@ module "networkinterface" {
   ## Call localvnetgateway module
 module "localvnetgateway" {
   source = "./modules/localvnetgateway"
-  name                  = "${var.localgatewayaddress}-${var.environment}"
+  localvnetgatewayname  = "${var.}"
   location              = module.resourcegroup._resourcegrouplocation
   resourcegroupname     = module.resourcegroup._resourcegroupname
   peergatewayaddress    = var.peergatewayaddress
