@@ -60,11 +60,6 @@ jobs:
     # Checks the correctioness of all Terraform files syntax
     - name: Terraform Validate
       run: terraform validate
-      
-     name: Login via Az module
-      uses: azure/login@v1
-      with:
-         creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.MVP_SUBSCRIPTION }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'  
     
     # Generate the report on what would be deployed using Terraform Plan on respective environment
     - name: Terraform Plan
