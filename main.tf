@@ -97,4 +97,3 @@ module "localvnetgateway" {
   peeraddressspace      = var.peeraddressspace
  }
 
-
