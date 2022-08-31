@@ -19,7 +19,7 @@ variable "peeraddressspace" {
   description = "The peer address would be provisioned."
 }
 
-variable "localgatewayaddress" {
+variable "peergatewayaddress" {
   type        = string
   description = "The Azure Virtual Network address space would be provisioned."
 }
