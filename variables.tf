@@ -204,3 +204,13 @@ variable "peervnetgetwayname" {
   description = "The Azure Virtual Network address space would be provisioned."
 }
 
+variable "subnetnamevpn" {
+  type        = string
+  description = "The Azure Virtual Network address space would be provisioned."
+}
+
+variable "subnetaddressvpn" {
+  type        = string
+  description = "The Azure Virtual Network address space would be provisioned."
+}
+
