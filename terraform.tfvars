@@ -42,6 +42,6 @@ peervnetgetwayname            = "localvnetgateway"
 subnetnamevpn                 = "GatewaySubnet"
 subnetaddressvpn              = "vpnazuretoaws"
 privateip                     = "10.100.0.0/24"
-vpngatewayname                = "vpngateway"
+vpngatewayname                = "vpngateway2aws"
 skuvalue                      = "basic" 
 

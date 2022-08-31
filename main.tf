@@ -97,3 +97,19 @@ module "localvnetgateway" {
   peeraddressspace      = var.peeraddressspace
  }
 
+
+  ## Call vpngateway module
+module "vpngateway" {
+  source = "./modules/vpngateway"
+  vpngatewayname        = "${var.vpngatewayname}"
+  location              = module.resourcegroup._resourcegrouplocation
+  resourcegroupname     = module.resourcegroup._resourcegroupname
+  skuvalue              =var.skuvalue
+
+  ip_configuration {
+    name                          = var.publicipname
+    public_ip_address_id          = var.publicipid
+    subnet_id                     = azurerm_subnet.subnetvpn.id
+  }
+}
+
