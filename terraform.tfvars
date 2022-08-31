@@ -1,7 +1,5 @@
 location                      = "westeurope"
 vnetname                      = "vnet"
-subnetname                    = "snet"
-subnetaddressspace            = "10.0.1.0/24"
 networkinterfacename          = "nic"
 networkinterfaceid            = "nicid"
 nsgname                       = "nsg"
