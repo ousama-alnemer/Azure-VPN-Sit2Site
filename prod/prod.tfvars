@@ -12,15 +12,3 @@ vpngatewayname                = "vpngateway"
 skuvalue                      = "basic" 
 publicipname                  = "vpngatewayip"
 publicipid                    = "vpngatewayid"
-
-
-
-
-
-
-
-
-
-
-
-
