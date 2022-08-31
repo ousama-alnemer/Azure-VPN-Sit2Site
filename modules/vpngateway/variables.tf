@@ -34,7 +34,7 @@ variable "publicipname" {
   description = "The name of azure Virtual Network."
 }
 
-variable "publicipid" {
-  type        = string
-  description = "The name of azure Virtual Network."
-}
+#variable "publicipid" {
+#  type        = string
+#  description = "The name of azure Virtual Network."
+#}
