@@ -43,14 +43,14 @@ provider "azurerm" {
 module "resourcegroup" {
   source = "./modules/resource-group"
 
-  resourcegroupname = "${var.resourcegroupname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  resourcegroupname = "${var.resourcegroupname}"
   location          = var.location
 }
 
 # Call Virtual Network module
 module "virtualnetwork" {
   source = "./modules/virtual-network"
-  vnetname          = "${var.vnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  vnetname          = "${var.vnetname}"
   vnetaddressspace  = var.vnetaddressspace
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
@@ -60,7 +60,7 @@ module "virtualnetwork" {
 module "subnet" {
   source = "./modules/subnet"
 
-  subnetname         = "${var.subnetname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  subnetname         = "${var.subnetname}"
   subnetaddressspace = var.subnetaddressspace
   vnetname           = module.virtualnetwork._vnetname
   location           = module.resourcegroup._resourcegrouplocation
@@ -81,7 +81,7 @@ module "subnetvpngateway" {
 module "publicip" {
   source = "./modules/public-ip"
 
-  publicipname      = "${var.publicipname}-${var.applicationname}-${var.environment}-${var.locationacronym}-${var.increment}"
+  publicipname      = "${var.publicipname}"
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
   environment       = var.environment
