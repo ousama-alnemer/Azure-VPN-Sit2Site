@@ -189,3 +189,13 @@ variable "firewallpolicyname" {
   description = "The firewall name."
 }
 
+variable "peeraddressspace" {
+  type        = string
+  description = "The peer address would be provisioned."
+}
+
+variable "localgatewayaddress" {
+  type        = string
+  description = "The Azure Virtual Network address space would be provisioned."
+}
+

@@ -121,4 +121,13 @@ module "firewallpolicy" {
   resourcegroupname  = module.resourcegroup._resourcegroupname
  }
 
+  ## Call localvnetgateway module
+module "localvnetgateway" {
+  source = "./modules/localvnetgateway"
+  firewallpolicyname    = "${var.localgatewayaddress}-${var.environment}"
+  location              = module.resourcegroup._resourcegrouplocation
+  resourcegroupname     = module.resourcegroup._resourcegroupname
+  gateway_address       = var.peeraddressspace
+  localgatewayaddress   = var.localgatewayaddress
+ }
 
