@@ -3,7 +3,11 @@
 # This workflow installs the latest version of Terraform CLI and configures the Terraform CLI configuration file.
 # On pull request events, this workflow will run `terraform init`, `terraform workspace select`, `terraform fmt`, 
 # `terraform validate` and `terraform plan`  
+<<<<<<< HEAD
 #dd
+=======
+#ddss
+>>>>>>> 931b0b248a1553d3ffbd3ae4dd468802b6b14349
 
 name: Terraform Plan
 
