@@ -12,7 +12,7 @@ variable "location" {
 variable "resourcegroupname" {
   type        = string
   description = "The Azure Resource Group Name."
-
+}
 
 variable "vpngatewayname" {
   type        = string
