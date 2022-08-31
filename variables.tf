@@ -214,10 +214,10 @@ variable "subnetaddressvpn" {
   description = "The Azure Virtual Network address space would be provisioned."
 }
 
-variable "privateip" {
-  type        = string
-  description = "The Azure Virtual Network address space would be provisioned."
-}
+#variable "privateip" {
+ # type        = string
+#  description = "The Azure Virtual Network address space would be provisioned."
+#}
 
 variable "vpngatewayname" {
   type        = string

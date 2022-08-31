@@ -104,10 +104,16 @@ module "vpngateway" {
   vpngatewayname        = "${var.vpngatewayname}"
   location              = module.resourcegroup._resourcegrouplocation
   resourcegroupname     = module.resourcegroup._resourcegroupname
-  skuvalue              =var.skuvalue
-  ip_configuration {
+  skuvalue              = var.skuvalue
+  publicipname          = module.razurerm_public_ip.publicipname
+  
+}
+
+
+/*
+ip_configuration {
     name                          = var.publicipname
     public_ip_address_id          = var.publicipid
     subnet_id                     = azurerm_subnet.subnetvpn.id
   }
-}
+*/
