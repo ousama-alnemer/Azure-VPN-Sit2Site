@@ -30,8 +30,3 @@ variable "skuvalueip" {
   description = "The name of the public ip address."
 }
 
-
-variable "azurerm_public_ip" {
-  type        = string
-  description = "The name of the public ip address."
-}
