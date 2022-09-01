@@ -8,8 +8,8 @@ resource "azurerm_virtual_network_gateway" "vpngateway" {
 
   ip_configuration {
   name                  = var.publicipname
-  #public_ip_address_id  = module.publicip._publicipid
-  #subnet_id             = module.subnetvpngateway._subnetvpn.id
+  public_ip_address_id  = module.publicip._publicipid
+  subnet_id             = module.subnetvpngateway._subnetvpn.id
   
    }
 }
