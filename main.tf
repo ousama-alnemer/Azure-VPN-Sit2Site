@@ -75,6 +75,7 @@ module "subnetvpngateway" {
   vnetname              = module.virtualnetwork._vnetname
   location              = module.resourcegroup._resourcegrouplocation
   resourcegroupname     = module.resourcegroup._resourcegroupname
+
 }
 
 # Call Public IP module
@@ -111,6 +112,13 @@ module "vpngateway" {
   publicipid            = module.publicip._publicipid
   subnetid              = module.subnetvpngateway._subnetid 
   publicip              = module.publicip.azurerm_public_ip
+  public_ip_address_id  = module.publicip._publicipid
+
+
 }
+
+output "azurerm_subnet" {
+  value = resource.azurerm_subnet.subnetvpn.id
+} 
 
 
