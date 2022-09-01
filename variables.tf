@@ -75,16 +75,6 @@ variable "publicipid" {
 } 
   
 
-variable "skuname" {
-  type        = string
-  description = "The sku_name ."
-}
-
-variable "skutier" {
-  type        = string
-  description = "The sku_tier."
-}
-
 variable "peeraddressspace" {
   type        = string
   description = "The peer address would be provisioned."
