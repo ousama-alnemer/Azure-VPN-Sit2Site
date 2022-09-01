@@ -121,4 +121,7 @@ output "azurerm_subnet" {
   value = resource.azurerm_subnet.subnetvpn.id
 } 
 
+output "azurerm_public_ip" {
+  value = resource.azurerm_public_ip.publicip.id
+}
 
