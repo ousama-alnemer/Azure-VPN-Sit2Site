@@ -84,7 +84,7 @@ module "publicip" {
   publicipname      = "${var.publicipname}"
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
-  environment       = var.environment
+  #environment       = var.environment
 }
 
  # ## Call localvnetgateway module
