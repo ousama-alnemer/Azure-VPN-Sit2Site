@@ -38,7 +38,12 @@ variable "type" {
   description = "The name of azure Virtual Network."
 }
 
-#variable "publicipid" {
-#  type        = string
-#  description = "The name of azure Virtual Network."
-#}
+variable "subnetid" {
+  type        = string
+  description = "The name of azure Virtual Network."
+}
+
+variable "publicipid" {
+ type        = string
+ description = "The name of azure Virtual Network."
+}
