@@ -41,7 +41,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_network_security_group" "sgn-01" {
-  name                = "example-security-group"
+  name                = "vnet-hub-sgn-01"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }
