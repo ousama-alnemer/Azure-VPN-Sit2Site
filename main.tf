@@ -33,7 +33,36 @@ terraform {
   }
 }
 
-           
+
+resource "azurerm_resource_group" "rg" {
+  name     = "vnet-hub-rg"
+  location = "West Europe"
+}
+
+resource "azurerm_virtual_network" "vnet" {
+  name                = "vnet-hub"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  address_space       = ["10.100.0.0/16"]
+
+  subnet {
+    name           = "sub-01"
+    address_prefix = "10.100.1.0/24"
+  }
+
+  subnet {
+    name           = "GatewaySubnet"
+    address_prefix = "10.100.2.0/26"
+    security_group = azurerm_network_security_group.example.id
+  }
+
+  tags = {
+    environment = "Production"
+  }
+}
+
+
+ /*          
 ## Azure Cloud Provider name
 provider "azurerm" {
   features {}
@@ -130,4 +159,6 @@ output "azurerm_subnet" {
 output "azurerm_public_ip" {
   value = resource.azurerm_public_ip.publicip.id
 }
+
+*/
 
