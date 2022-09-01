@@ -53,3 +53,8 @@ variable "publicip" {
  type        = string
  description = "The name of azure Virtual Network."
 }
+
+variable "azurerm_subnet" {
+ description = "The name of azure Virtual Network."
+}
+
