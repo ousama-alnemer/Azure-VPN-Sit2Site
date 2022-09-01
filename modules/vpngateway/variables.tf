@@ -50,6 +50,6 @@ variable "publicipid" {
 
 
 variable "publicip" {
- type        = module
+ type        = string
  description = "The name of azure Virtual Network."
 }
