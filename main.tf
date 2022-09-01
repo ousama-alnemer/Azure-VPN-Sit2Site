@@ -112,12 +112,3 @@ module "vpngateway" {
 }
 
 
-/*
-publicipname          = module.publicip._publicipname
- 
-ip_configuration {
-    name                          = var.publicipname
-    public_ip_address_id          = var.publicipid
-    subnet_id                     = azurerm_subnet.subnetvpn.id
-  }
-*/
