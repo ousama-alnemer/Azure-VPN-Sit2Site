@@ -84,9 +84,7 @@ module "publicip" {
   publicipname      = "${var.publicipname}"
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
-  skuvalueip        = var.skuvalueip 
-  publicipid        = var.publicipid
-  #environment       = var.environment
+  environment       = var.environment
 }
 
  # ## Call localvnetgateway module
@@ -100,7 +98,6 @@ module "localvnetgateway" {
  }
 
 /*
-
   ## Call vpngateway module
 module "vpngateway" {
   source = "./modules/vpngateway"
@@ -108,11 +105,9 @@ module "vpngateway" {
   location              = module.resourcegroup._resourcegrouplocation
   resourcegroupname     = module.resourcegroup._resourcegroupname
   skuvalue              = var.skuvalue
-  subnetvpn             = var.subnetnamevpn 
-  type                  = "vpn"
-  publicipname          = module.publicip.publicipname
-  subnetid              = "sub-vpn-id"
-  publicipid            = "vpn-public-id"
+  subnetvpn             = var.subnetnamevpn
+  publicipname          = module.publicip._publicipname
+ # publicipid            = module.razurerm_publicip.publicipid
 }
 
 
