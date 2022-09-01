@@ -1,6 +1,6 @@
 environment                   = "prod"
-vnetaddressspace              = "10.68.0.0/16"
-subnetaddressspace            = "10.68.1.0/24"
+vnetaddressspace              = "10.100.0.0/16"
+subnetaddressspace            = "10.100.1.0/24"
 location                      = "westeurope"
 peeraddressspace              = "10.66.0.0/16"
 peergatewayaddress            = "178.155.227.114"
