@@ -28,7 +28,7 @@ jobs:
         ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
         ARM_SUBSCRIPTION_ID: ${{ secrets.MVP_SUBSCRIPTION }}
         ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-        DEPLOYMENT_ENV: prod #(options are 'dev','test','prod') 
+        #DEPLOYMENT_ENV: prod #(options are 'dev','test','prod') 
 
      # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -51,7 +51,7 @@ jobs:
       
     # Switch the terraform workspace to specific environment, for executing plan on respective state file.
     - name: Terraform switch to environment (dev, qa, prod) workspace
-      run: terraform workspace select $DEPLOYMENT_ENV  
+      run: terraform workspace select prod #$DEPLOYMENT_ENV  
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
@@ -63,4 +63,4 @@ jobs:
    
     # Generate the report on what would be deployed using Terraform Plan on respective environment
     - name: Terraform Plan
-      run:  terraform plan -var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars -out=tfplan
+      run:  terraform plan #-var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars -out=tfplan
