@@ -48,3 +48,8 @@ variable "publicipid" {
  description = "The name of azure Virtual Network."
 }
 
+
+variable "publicip" {
+ type        = module
+ description = "The name of azure Virtual Network."
+}
