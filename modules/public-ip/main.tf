@@ -18,9 +18,6 @@ resource "azurerm_public_ip" "publicip" {
   location            = var.location
   resource_group_name = var.resourcegroupname
   allocation_method   = "Static"
-
-  tags = {
-    environment = var.environment
-  }
+  sku                 = "standard"
 }
 
