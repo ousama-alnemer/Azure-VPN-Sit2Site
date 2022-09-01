@@ -1,3 +1,4 @@
+ /*
 terraform {
   required_providers {
     azurerm = {
@@ -6,7 +7,8 @@ terraform {
     }
   }
   required_version = ">= 0.14.9"
-  
+ }
+
   # Backend setup to maintain Terraform state file
   backend "azurerm" {
     resource_group_name  = "terraform-rg"
@@ -15,6 +17,21 @@ terraform {
     key                  = "winterraform.tfstate"
   }
 }
+*/
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 2.65"
+    }
+  }
+  required_version = ">= 0.14.9"
+ }
+
+ provider "azurerm" {   
+   features {} 
+} 
 
 
 
