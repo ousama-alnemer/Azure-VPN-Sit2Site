@@ -126,3 +126,8 @@ variable "vnetname" {
   description = "The Azure Virtual Network address space would be provisioned."
 }
 
+variable "azurerm_public_ip" {
+  description = "The Azure Virtual Network address space would be provisioned."
+}
+
+
