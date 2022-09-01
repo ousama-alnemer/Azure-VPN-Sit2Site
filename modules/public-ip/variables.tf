@@ -24,3 +24,10 @@ variable "publicipname" {
   type        = string
   description = "The name of the public ip address."
 }
+
+variable "skuvalueip" {
+  type        = string
+  description = "The name of the public ip address."
+}
+
+

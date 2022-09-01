@@ -126,3 +126,9 @@ variable "vnetname" {
   description = "The Azure Virtual Network address space would be provisioned."
 }
 
+variable "skuvalueip" {
+  type        = string
+  description = "The name of the public ip address."
+}
+
+
