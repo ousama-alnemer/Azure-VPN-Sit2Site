@@ -126,3 +126,13 @@ variable "skuvalue" {
   description = "The Azure Virtual Network address space would be provisioned."
 }
 
+variable "vnetaddressspace" {
+  type        = string
+  description = "The Azure Virtual Network address space would be provisioned."
+}
+
+variable "vnetname" {
+  type        = string
+  description = "The Azure Virtual Network address space would be provisioned."
+}
+
