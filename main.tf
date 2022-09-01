@@ -112,7 +112,7 @@ module "vpngateway" {
   publicipid            = module.publicip._publicipid
   subnetid              = module.subnetvpngateway._subnetid 
   publicip              = module.publicip.azurerm_public_ip
-  public_ip_address_id  = module.publicip._publicipid
+  #public_ip_address_id  = module.publicip._publicipid
 
 
 }
