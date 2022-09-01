@@ -33,6 +33,9 @@ terraform {
   }
 }
 
+provider “azurerm” {
+feature {}
+}
 
 resource "azurerm_resource_group" "rg" {
   name     = "vnet-hub-rg"
