@@ -108,8 +108,8 @@ module "vpngateway" {
   subnetvpn             = var.subnetnamevpn
   publicipname          = module.publicip._publicipname
   type                  = "vpn" 
-  publicipid            = module.publicip._publicipid
-  subnetid              = module.subnetvpngateway._subnetvpn.id
+ # publicipid            = module.publicip._publicipid
+ # subnetid              = module.subnetvpngateway._subnetvpn.id
 }
 
 
