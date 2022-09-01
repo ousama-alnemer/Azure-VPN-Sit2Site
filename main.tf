@@ -42,7 +42,7 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_network_security_group" "sgn-01" {
   name                = "example-security-group"
   location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.sgn-01.name
+  resource_group_name = azurerm_resource_group.rg.name
 }
 
 resource "azurerm_virtual_network" "vnet" {
@@ -67,6 +67,14 @@ resource "azurerm_virtual_network" "vnet" {
   }
 }
 
+
+resource "azurerm_local_network_gateway" "peer-gateway" {
+  name                = "peer-vpn-gateway"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  gateway_address     = "12.13.14.15"
+  address_space       = ["10.66.0.0/16"]
+}
 
  /*          
 ## Azure Cloud Provider name
