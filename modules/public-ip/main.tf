@@ -19,6 +19,7 @@ resource "azurerm_public_ip" "publicip" {
   resource_group_name = var.resourcegroupname
   sku                 = var.skuvalueip
   allocation_method   = "Static"
+  publicipid          = var.publicipid
 
 }
 
