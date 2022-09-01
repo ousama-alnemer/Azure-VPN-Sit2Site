@@ -12,7 +12,7 @@
         Creation Date: 15 June 2022
         Modified By: Anil Kumar
         Modified Date: 16 June 2022
-        -
+        -dd
 */
 
 terraform {
@@ -23,7 +23,7 @@ terraform {
     }
   }
   required_version = ">= 0.14.9"
-
+  
   # Backend setup to maintain Terraform state file
   backend "azurerm" {
     resource_group_name  = "terraform-rg"
