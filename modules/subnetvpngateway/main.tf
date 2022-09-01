@@ -18,7 +18,7 @@ resource "azurerm_subnet" "subnetvpn" {
   resource_group_name  = var.resourcegroupname
   virtual_network_name = var.vnetname
   address_prefixes     = [var.subnetaddressvpn]
-  subnetid             = var.subvpnid
+#  subnetid             = var.subvpnid
 }
   
 
