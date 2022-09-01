@@ -120,9 +120,8 @@ module "vpngateway" {
   subnet_id            = module.subnetvpngateway._subnetid
   
    }
-  }
-
 }
+
 
 output "azurerm_subnet" {
   value = resource.azurerm_subnet.subnetvpn.id
