@@ -85,6 +85,7 @@ module "publicip" {
   location          = module.resourcegroup._resourcegrouplocation
   resourcegroupname = module.resourcegroup._resourcegroupname
   skuvalueip        = var.skuvalueip 
+  publicipid        = var.publicipid
   #environment       = var.environment
 }
 
