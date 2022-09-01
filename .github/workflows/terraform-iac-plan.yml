@@ -50,8 +50,8 @@ jobs:
       run: terraform init 
       
     # Switch the terraform workspace to specific environment, for executing plan on respective state file.
-    - name: Terraform switch to environment (dev, qa, prod) workspace
-      run: terraform workspace select prod #$DEPLOYMENT_ENV  
+    #- name: Terraform switch to environment (dev, qa, prod) workspace
+    #  run: terraform workspace select prod #$DEPLOYMENT_ENV  
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
