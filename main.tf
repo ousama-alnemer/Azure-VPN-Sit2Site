@@ -39,6 +39,12 @@ resource "azurerm_resource_group" "rg" {
   location = "West Europe"
 }
 
+resource "azurerm_network_security_group" "sgn-01" {
+  name                = "example-security-group"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.sgn-01.name
+}
+
 resource "azurerm_virtual_network" "vnet" {
   name                = "vnet-hub"
   location            = azurerm_resource_group.rg.location
@@ -53,7 +59,7 @@ resource "azurerm_virtual_network" "vnet" {
   subnet {
     name           = "GatewaySubnet"
     address_prefix = "10.100.2.0/26"
-    security_group = azurerm_network_security_group.example.id
+    security_group = azurerm_network_security_group.sgn-01.id
   }
 
   tags = {
