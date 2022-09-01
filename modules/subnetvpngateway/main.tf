@@ -20,5 +20,6 @@ resource "azurerm_subnet" "subnetvpn" {
   address_prefixes     = [var.subnetaddressvpn]
 }
   
-
-
+output "azurerm_subnet" {
+  value = resource.azurerm_subnet.subnetvpn.id
+}
