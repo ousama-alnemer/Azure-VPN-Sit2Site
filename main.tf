@@ -105,7 +105,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
     public_ip_address_id          = azurerm_public_ip.vpn-ip.id
     subnet_id                     = azurerm_public_ip.subgateway.id
   }
-
+ }
 
 
 
