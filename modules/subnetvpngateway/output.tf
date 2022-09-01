@@ -3,3 +3,4 @@ output "_subnetid" {
   value       = azurerm_subnet.subnetvpn.id
   sensitive   = false
 }
+
