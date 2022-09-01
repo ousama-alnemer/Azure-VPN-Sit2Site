@@ -86,6 +86,7 @@ module "publicip" {
   resourcegroupname = module.resourcegroup._resourcegroupname
   skuvalueip        = var.skuvalueip
   environment       = var.environment
+  publicipid        = var.publicipid
 }
 
  # ## Call localvnetgateway module
