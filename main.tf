@@ -107,7 +107,7 @@ module "vpngateway" {
   resourcegroupname     = module.resourcegroup._resourcegroupname
   skuvalue              = var.skuvalue
   subnetvpn             = var.subnetnamevpn
-  publicipname          = module.publicip.ip_configuration_publicipname 
+  publicipname          = module.publicip.ip_configuration._publicipname 
  # publicipid            = module.razurerm_publicip.publicipid
 }
 
