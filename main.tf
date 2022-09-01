@@ -110,6 +110,7 @@ module "vpngateway" {
   type                  = "vpn" 
   publicipid            = module.publicip._publicipid
   subnetid              = module.subnetvpngateway._subnetid 
+  publicip              = module.publicip.azurerm_public_ip
 }
 
 
