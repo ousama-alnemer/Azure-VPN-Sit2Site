@@ -2,7 +2,7 @@ resource "azurerm_virtual_network_gateway" "vpngateway" {
   name                = var.vpngatewayname
   location            = var.location
   resource_group_name = var.resourcegroupname
-  sku                 = var.skuvalue
+  sku                 = "var.skuvalue"
   type                = "vpn" 
  
    ip_configuration {
