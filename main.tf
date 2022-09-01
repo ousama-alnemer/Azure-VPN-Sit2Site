@@ -1,20 +1,3 @@
-/*
-    .SYNOPSIS
-        Configure the Azure provider, Provider version and Terraform backend setup for Windows Virtual Machine 2019 provisioning.
-    .DESCRIPTION
-        This is the main file which performs below:
-        a.) Defines the cloud resource provider
-        b.) Terraform backend setup
-        c.) Code to call modules for provisioning Windows Virtual Machine 2019 Datacenter
-    .NOTES
-        Version: 0.1
-        Created By: Ousama alnemer
-        Creation Date: 15 June 2022
-        Modified By: Anil Kumar
-        Modified Date: 16 June 2022
-        -dd
-*/
-
 terraform {
   required_providers {
     azurerm = {
