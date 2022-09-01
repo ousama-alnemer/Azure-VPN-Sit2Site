@@ -1,3 +1,16 @@
+
+# Call Public IP module
+module "publicip" {
+  source = "./modules/public-ip"
+
+  publicipname      = "${var.publicipname}"
+  location          = module.resourcegroup._resourcegrouplocation
+  resourcegroupname = module.resourcegroup._resourcegroupname
+  environment       = var.environment
+}
+
+
+
 resource "azurerm_virtual_network_gateway" "vpngateway" {
   name                = var.vpngatewayname
   location            = var.location

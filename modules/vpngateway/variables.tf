@@ -44,12 +44,7 @@ variable "subnetid" {
 }
 
 variable "publicipid" {
+ type        = string
+ description = "The name of azure Virtual Network."
 }
 
-resource "azurerm_public_ip" "publicip" {
-  name                = var.publicipname
-  location            = var.location
-  resource_group_name = var.resourcegroupname
-  allocation_method   = "Static"
-  sku                 = "standard"
-}
