@@ -99,6 +99,7 @@ module "localvnetgateway" {
   peeraddressspace      = var.peeraddressspace
  }
 
+/*
 
   ## Call vpngateway module
 module "vpngateway" {
@@ -114,7 +115,7 @@ module "vpngateway" {
   publicipid            = "vpn-public-id"
 }
 
-/*
+
 
 publicipname          = module.publicip._publicipname
  
