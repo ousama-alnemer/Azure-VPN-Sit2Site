@@ -1,16 +1,3 @@
-
-# Call Public IP module
-module "publicip" {
-  source = "./modules/public-ip"
-
-  publicipname      = "${var.publicipname}"
-  location          = module.resourcegroup._resourcegrouplocation
-  resourcegroupname = module.resourcegroup._resourcegroupname
-  environment       = var.environment
-}
-
-
-
 resource "azurerm_virtual_network_gateway" "vpngateway" {
   name                = var.vpngatewayname
   location            = var.location
@@ -20,8 +7,8 @@ resource "azurerm_virtual_network_gateway" "vpngateway" {
  
   ip_configuration {
   name                  = var.publicipname
-  public_ip_address_id            = module.publicip._publicipid
-  subnet_id              = module.subnetvpngateway._subnetvpn.id
+  public_ip_address_id            = "/subscriptions/79156d6a-8aa3-4824-9534-684ced8aec23/resourceGroups/vnet-hub-rg/providers/Microsoft.Network/publicIPAddresses/vpn-public-ip"
+  subnet_id              = "9442b8d4-afca-4849-b9b2-9ba0d9d2260e"
   
    }
 }
