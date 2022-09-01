@@ -1,4 +1,4 @@
-
+applicationname               = "nc"
 location                      = "westeurope"
 locationacronym               = "we"
 resourcegroupname             = "rg"
