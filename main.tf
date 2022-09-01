@@ -110,9 +110,8 @@ module "vpngateway" {
   subnetvpn             = var.subnetnamevpn 
   type                  = "vpn"
   publicipname          = module.publicip.publicipname
-  subnetid              = module.subnetvpngateway.subnetid
-  publicipid            = module.publicip.publicipid
- # publicipid            = module.razurerm_publicip.publicipid
+  subnetid              = "sub-vpn-id"
+  publicipid            = "vpn-public-id"
 }
 
 /*
