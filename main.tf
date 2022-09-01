@@ -55,16 +55,16 @@ resource "azurerm_virtual_network" "vnet" {
     name           = "sub-01"
     address_prefix = "10.100.1.0/24"
   }
-
-  subnet {
-    name           = "GatewaySubnet"
-    address_prefix = "10.100.2.0/26"
-    security_group = azurerm_network_security_group.sgn-01.id
-  }
-
   tags = {
     environment = "Production"
   }
+}
+
+resource "azurerm_subnet" "subgateway" {
+  name                 = "GatewaySubnet"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.100.2.0/26"]
 }
 
 
@@ -88,7 +88,23 @@ resource "azurerm_public_ip" "vpn-ip" {
   }
 }
 
+resource "azurerm_virtual_network_gateway" "vpn-gateway" {
+  name                = "test"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
 
+  type     = "Vpn"
+  vpn_type = "RouteBased"
+
+  active_active = false
+  enable_bgp    = false
+  sku           = "Basic"
+
+  ip_configuration {
+    name                          = "vpn-gateway-ip"
+    public_ip_address_id          = azurerm_public_ip.vpn-ip.id
+    subnet_id                     = azurerm_public_ip.subgateway.id
+  }
 
 
 
