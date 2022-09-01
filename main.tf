@@ -114,6 +114,13 @@ module "vpngateway" {
   publicip              = module.publicip.azurerm_public_ip
   #public_ip_address_id  = module.publicip._publicipid
 
+  ip_configuration {
+  name                  = "${var.publicipname}"
+  public_ip_address_id  = module.publicip.azurerm_public_ip
+  subnet_id            = module.subnetvpngateway._subnetid
+  
+   }
+  }
 
 }
 
