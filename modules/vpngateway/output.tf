@@ -1,5 +1,5 @@
-output "_publicipname" {
+output "_vpngateway" {
   description = "To return the name of the virtual network"
-  value       = azurerm_virtual_network_gateway.publicipname.name
+  value       = azurerm_virtual_network_gateway.vpngateway.name
   sensitive   = false
 }
