@@ -35,7 +35,6 @@ variable "subnetname" {
 
 variable "subnetid" {
   type        = string
-  default     = ""
   description = "The id of azure SubNet."
 }
 
@@ -131,4 +130,7 @@ variable "skuvalueip" {
   description = "The name of the public ip address."
 }
 
-
+variable "subvpnid" {
+  type        = string
+  description = "The name of the public ip address."
+}
