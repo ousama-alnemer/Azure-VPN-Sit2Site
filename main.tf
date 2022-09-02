@@ -114,6 +114,18 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
   }
  }
 
+resource "azurerm_virtual_network_gateway_connection" "azure2onpremise" {
+  name                = "azure2onpremise"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  type                       = "IPsec"
+  virtual_network_gateway_id = azurerm_virtual_network_gateway.vpn-gateway.id
+  local_network_gateway_id   = azurerm_local_network_gateway.peer-gateway.id
+
+  shared_key = "4-v3ry-53cr37-1p53c-5h4r3d-k3y"
+}
+
 
 
  /*          
