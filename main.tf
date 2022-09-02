@@ -24,7 +24,7 @@ terraform {
     }
   }
   required_version = ">= 0.14.9"
- }
+
 
   # Backend setup to maintain Terraform state file
   backend "azurerm" {
@@ -33,7 +33,7 @@ terraform {
     container_name       = "tfstate"
     key                  = "winterraform.tfstate"
   }
-
+}
 
  provider "azurerm" {   
    features {} 
