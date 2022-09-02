@@ -135,7 +135,8 @@ resource "azurerm_route_table" "rt" {
   route {
     name           = "route1"
     address_prefix = "10.66.0.0/16"
-    next_hop_type  = "firewall"
+    next_hop_type          = "VirtualAppliance"
+    next_hop_in_ip_address = "10.10.1.1"
   }
 
   tags = {
