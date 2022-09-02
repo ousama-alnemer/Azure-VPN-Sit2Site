@@ -115,7 +115,7 @@ resource "azurerm_virtual_network_gateway" "vpn-gateway" {
  }
 
 resource "azurerm_virtual_network_gateway_connection" "azure2onpremise" {
-  name                = "azure2onpremise"
+  name                = "azure2onpremise-01"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -126,6 +126,22 @@ resource "azurerm_virtual_network_gateway_connection" "azure2onpremise" {
   shared_key = "4-v3ry-53cr37-1p53c-5h4r3d-k3y"
 }
 
+resource "azurerm_route_table" "rt" {
+  name                          = "rt-route-table"
+  location                      = azurerm_resource_group.rg.location
+  resource_group_name           = azurerm_resource_group.rg.name
+  disable_bgp_route_propagation = false
+
+  route {
+    name           = "route1"
+    address_prefix = "10.66.0.0/16"
+    next_hop_type  = "firewall"
+  }
+
+  tags = {
+    environment = "Production"
+  }
+}
 
 
  /*          
