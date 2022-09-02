@@ -63,4 +63,4 @@ jobs:
    
     # Generate the report on what would be deployed using Terraform Plan on respective environment
     - name: Terraform Plan
-      run:  terraform plan -out= "C:\terraform-source\github\Global\Azure-VPN-Site2Site\main.tfplan" #-var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars -out=tfplan
+      run:  terraform plan -out=terraform.tfvars #-var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars -out=tfplan
