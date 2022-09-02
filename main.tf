@@ -33,7 +33,7 @@ terraform {
     container_name       = "tfstate"
     key                  = "winterraform.tfstate"
   }
-}
+
 
  provider "azurerm" {   
    features {} 
