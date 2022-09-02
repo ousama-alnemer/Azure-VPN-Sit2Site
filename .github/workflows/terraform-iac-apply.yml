@@ -55,5 +55,5 @@ jobs:
 
     # Execute the deployment using Terraform Apply on respective environment
     - name: Terraform Apply
-      run: ./terraform apply main.tfplan     #-var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars
+      run: ./terraform apply -auto-approve   #-var-file $DEPLOYMENT_ENV/$DEPLOYMENT_ENV.tfvars
   
